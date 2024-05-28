@@ -1,4 +1,9 @@
 {
+  "require": {
+    "nesbot/carbon": "^2.0",
+    "dariuszp/cli-progress-bar": "^1.0",
+    "ext-readline": "*"
+  },
   "autoload": {
     "psr-4": {
       "Zookeeper\\": "src/"

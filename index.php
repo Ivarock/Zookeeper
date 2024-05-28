@@ -2,12 +2,23 @@
 
 use Zookeeper\Zookeeper;
 use Zookeeper\Animal;
+use Dariuszp\CliProgressBar;
 require 'vendor/autoload.php';
 
 $zookeeper = new Zookeeper();
-$zookeeper->addAnimal(new Animal('Tiger', 'Meat'));
-$zookeeper->addAnimal(new Animal('Elephant', 'Vegetables'));
-$zookeeper->addAnimal(new Animal('Monkey', 'Fruit'));
+$zookeeper->addAnimal(new Animal('Buffalo', 'Grass'));
+$zookeeper->addAnimal(new Animal('Cat', 'Mouse'));
+$zookeeper->addAnimal(new Animal('Monkey', 'Banana'));
+$zookeeper->addAnimal(new Animal('Spider', 'Fly'));
+
+function showProgressBar($title, $value, $maxValue = 100)
+{
+    $progressBar = new CliProgressBar($maxValue, $value);
+    $progressBar->display();
+    echo " $title\n";
+}
+
+
 
 while (true) {
     echo "Welcome to the zoo\n";
@@ -20,11 +31,15 @@ while (true) {
     $choice = readline('Enter your choice: ');
     switch ($choice) {
         case '1':
-            foreach ($zookeeper->animals as $animal) {
+            foreach ($zookeeper->getAnimals() as $animal) {
                 echo "Animal: " . $animal->getName() . "\n";
-                echo "Happiness: " . $animal->getHappiness() . "\n";
-                echo "Food Reserve: " . $animal->getFoodReserve() . "\n";
                 echo "Preferred food: " . $animal->getPreferredFood() . "\n";
+                echo "Last fed: " . $animal->getLastFed() . "\n";
+                echo "Last petted: " . $animal->getLastPetted() . "\n";
+                echo "Last played: " . $animal->getLastPlayed() . "\n";
+                echo "Last worked: " . $animal->getLastWorked() . "\n";
+                showProgressBar('Happiness', $animal->getHappiness()) . "\n";
+                showProgressBar('Food Reserve', $animal->getFoodReserve()) . "\n";
                 echo "-----------------------\n";
             }
             break;
