@@ -6,7 +6,7 @@ The food that you give animal must be validated and if the wrong food is given t
 
 Requirements:
 
-1. PHP >= 7.0
+1. PHP >= 8.1
 2. Composer (https://getcomposer.org/) for managing dependencies
 
 Installation:
