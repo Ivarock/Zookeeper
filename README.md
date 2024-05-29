@@ -11,7 +11,7 @@ Requirements:
 
 Installation:
 
-1. Clone the repository: git clone https://github.com/your-username/zookeeper.git
+1. Clone the repository: git clone https://github.com/Ivarock/zookeeper.git
 2. Navigate to the project directory: cd zookeeper
 3. Install dependencies using Composer: composer install
 
